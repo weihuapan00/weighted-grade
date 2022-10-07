@@ -20,7 +20,7 @@ public class Grade{
 
     //calculate the grade in one assignment and add to the total grade
     public void calculateGrade(){
-        int temp = 0;
+        double temp = 0;
         for(int i=0; i< this.size; i++ ){
             temp +=  earned_grade[i] / total_grade[i] * percentage[i];
         }
