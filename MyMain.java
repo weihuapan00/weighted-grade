@@ -10,9 +10,7 @@ public class MyMain{
         double[] total_point = new double[8];
         double[] earn_point = new double[8];
         double[] percentage= new double[8];
-
-
-
+        
         //loop 8 times to input 8 assignment from user
         for (int i=0; i<8; i++){
             // print out the prompts for user input
@@ -30,11 +28,13 @@ public class MyMain{
             percentage[i] = percent;
         }
 
+        
+
         sc.close();// close scanner
 
         // test case
-        // double[] total_point = {20, 30, 40, 50, 60, 100, 200, 300};
-        // double[] earn_point = {20,30,40,50,60,100,200,300};
+        // double[] total_point = {20,30,40,50,60,100,200,300};
+        // double[] earn_point = {20,30,40,50,60,100,100,300};
         // double[] percentage = {10, 10, 10, 10, 10, 10, 15, 25};
         
         //init grade obj
