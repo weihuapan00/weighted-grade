@@ -43,7 +43,7 @@ public class MyMain{
         //set all the variable in order to calculate the grade
         myGrade.setEarned_grade(earn_point);
         myGrade.setPercentage(percentage);
-        myGrade.setTotal_grade(percentage);
+        myGrade.setTotal_grade(total_point);
 
         // calculate the grade
         myGrade.calculateGrade();

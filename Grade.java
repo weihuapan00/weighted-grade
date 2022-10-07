@@ -31,9 +31,27 @@ public class Grade{
     public String toString(){
         String toReturn = "";
         toReturn += "Total weight grad now: " + grade + "\n";
+        toReturn += "Grade_level:" + grade_level() + "\n";
         return toReturn;
         
     }
+
+    // calculate the letter grade base on grade
+    public String grade_level(){
+        if (grade >= 90){
+            return "A";
+        }else if (grade>=80){
+            return "B";
+        }else if (grade>=70){
+            return "C";
+        }else if (grade >= 60){
+            return "D";
+        }else{
+            return "F";
+        }
+    }
+
+
 
     //setter for grade
     public void setGrade(double grade) {
