@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Collections;
+
 import java.util.LinkedList;
 
 public class Grade{
@@ -9,8 +8,8 @@ public class Grade{
     
 
     private LinkedList<Double> percentage = new LinkedList<>();
-    private LinkedList<Double> total_grade = new LinkedList<>();
-    private LinkedList<Double> earned_grade = new LinkedList<>();
+    private LinkedList<Double> total_grade = new LinkedList<>();;
+    private LinkedList<Double> earned_grade = new LinkedList<>();;
 
     // default constructor
     public Grade(){
@@ -33,6 +32,7 @@ public class Grade{
         }
         setGrade(temp);
     }
+
     /* toString method print out the data Grade class stored,
      and calculate the total weight grade.*/ 
     public String toString(){
@@ -72,7 +72,10 @@ public class Grade{
 
     //setter for percentage
     public void setPercentage(double[] percentage) {
-        this.percentage = percentage;
+        this.percentage.clear();
+        for( double d: percentage){
+            this.percentage.add(Double.valueOf(d));
+        }
     }
 
     //getter for total_grade
@@ -82,7 +85,10 @@ public class Grade{
 
     //setter for total_grade 
     public void setTotal_grade(double[] total_grade) {
-        this.total_grade = total_grade;
+        this.total_grade.clear();
+        for( double d: total_grade){
+            this.total_grade.add(Double.valueOf(d));
+        }
     }
 
     // getter for earned_grade
@@ -93,7 +99,9 @@ public class Grade{
     //setter for earn_grade
     public void setEarned_grade(double[] earned_grade) {
         this.earned_grade.clear();
-        Collections.addAll(this.earned_grade, earned_grade);
+        for( double d: earned_grade){
+            this.earned_grade.add(Double.valueOf(d));
+        }
     }
 
     //getter for array size
