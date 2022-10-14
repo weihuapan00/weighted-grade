@@ -10,7 +10,7 @@ public class Grade{
         return grade;
     }
 
-    private int size; // initit 
+    private int size; // init
     
 
     private LinkedList<Double> percentage = new LinkedList<>();
@@ -76,11 +76,21 @@ public class Grade{
     }
 
     //setter for percentage
-    public void setPercentage(double[] percentage) {
+    public boolean setPercentage(double[] percentage) {
         this.percentage.clear();
+        int temp = 0;
+        //check if add up to 100
+        for(double x : percentage){
+            temp+=x;
+        }
+        if(temp != 100){
+            return false;
+        }
+
         for( double d: percentage){
             this.percentage.add(Double.valueOf(d));
         }
+        return true;
     }
 
     //getter for total_grade
