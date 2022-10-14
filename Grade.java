@@ -3,8 +3,14 @@ import java.util.LinkedList;
 
 public class Grade{
     // initialize the variable in the class
-    private double grade = 0; //total weight grade
-    private int size = 0; // initit 
+    private double grade; //total weight grade
+
+    //getter for weighted grade
+    public double getGrade() {
+        return grade;
+    }
+
+    private int size; // initit 
     
 
     private LinkedList<Double> percentage = new LinkedList<>();
@@ -13,7 +19,6 @@ public class Grade{
 
     // default constructor
     public Grade(){
-        
     }
 
     // quick constructor that set percentage[], total_grade[], earned_grade[]
@@ -28,7 +33,7 @@ public class Grade{
     public void calculateGrade(){
         double temp = 0;
         for(int i=0; i< this.size; i++ ){
-            temp +=  earned_grade.get(i) / total_grade.get(i) * percentage.get(i);
+            temp +=  this.earned_grade.get(i) / this.total_grade.get(i) * this.percentage.get(i);
         }
         setGrade(temp);
     }
