@@ -1,9 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 public class MyMain{
 
@@ -11,26 +6,37 @@ public class MyMain{
         // create scanner obj
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Please enter the nubmer of assignment: ");
+        double[] percentage;
+        System.out.println("Please enter the number of assignment: ");
         int size = sc.nextInt(); // get next int
         sc.nextLine(); // get new line
+        String line;
 
-        // READ PERCENTAGE
-        System.out.println("Please enter the percentage of each assignments(as array): ");
-        System.out.println("Format Example: [1,2,3,4]");
+        //init grade obj
+        Grade myGrade = new Grade();
+        myGrade.setSize(size);
 
-        // get new line
-        String line = sc.nextLine();
-        // replace [ and ] by ""
-        line = line.replaceAll("\\[|\\]", "");
-        // parse the string to double and store them in array
-        double[] percentage = Stream.of(line.split(","))
-                                    .mapToDouble(s -> Double.parseDouble(s))
-                                    .toArray();
+        while(true){
+            // READ PERCENTAGE
+            System.out.println("Please enter the percentage of each assignments(as array): ");
+            System.out.println("Format Example: [1,2,3,4]");
+            // get new line
+            line = sc.nextLine();
+            // replace [ and ] by ""
+            line = line.replaceAll("\\[|\\]", "");
+            // parse the string to double and store them in array
+            percentage = Stream.of(line.split(","))
+                                        .mapToDouble(s -> Double.parseDouble(s))
+                                        .toArray();
+            if(myGrade.setPercentage(percentage)){//if not add up to 100 do it again
+                break;
+            }
+        }
+        
 
 
         //READ TOTAL POINTS
-        System.out.println("Please enter the total possiable points of each assignments(as array): ");
+        System.out.println("Please enter the total possible points of each assignments(as array): ");
         System.out.println("Format Example: [1,2,3,4]");
 
         //read next line
@@ -64,13 +70,11 @@ public class MyMain{
         
         
 
-        //init grade obj
-        Grade myGrade = new Grade();
-        myGrade.setSize(size);
+        
+        
         
         //set all the variable in order to calculate the grade
         myGrade.setEarned_grade(earn_point);
-        myGrade.setPercentage(percentage);
         myGrade.setTotal_grade(total_point);
 
         // calculate the grade

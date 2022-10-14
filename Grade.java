@@ -5,10 +5,6 @@ public class Grade{
     // initialize the variable in the class
     private double grade; //total weight grade
 
-    //getter for weighted grade
-    public double getGrade() {
-        return grade;
-    }
 
     private int size; // init
     
@@ -68,6 +64,11 @@ public class Grade{
     //setter for grade
     public void setGrade(double grade) {
         this.grade = grade;
+    }
+
+    //getter for weighted grade
+    public double getGrade() {
+        return grade;
     }
 
     //getter for percentage
