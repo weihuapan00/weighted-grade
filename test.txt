@@ -1,0 +1,21 @@
+public class main {
+    public static void main(String[] args) {
+        
+
+        double[] total_point = {20,30,40,50,60,100,200,300};
+        double[] earn_point = {20,30,40,50,60,100,100,300};
+        double[] percentage = {10, 10, 10, 10, 10, 10, 15, 25};
+
+        Grade myGrade = new Grade();
+        myGrade.setEarned_grade(earn_point);
+        myGrade.setTotal_grade(total_point);
+        myGrade.setPercentage(percentage);
+        myGrade.setSize(8);
+        myGrade.calculateGrade();
+        System.out.println(myGrade.toString());
+        System.out.println("current grade:"+myGrade.getGrade());
+        System.out.println(myGrade.getPercentage());
+        System.out.println(myGrade.getTotal_grade());
+        System.out.println(myGrade.getEarned_grade());
+    }
+}
