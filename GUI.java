@@ -13,7 +13,7 @@ public class GUI {
 
     public static void addaRow(JPanel jp){
         jp.add(new JLabel("Percentage"));
-        jp.add(new JLabel("Total Points"))
+        jp.add(new JLabel("Total Points"));
     }
 
     public static void main(String[] args) {
@@ -46,6 +46,8 @@ public class GUI {
         //add panel in frame
         f.add(view_p);
         f.add(input_p,BorderLayout.SOUTH);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // f.setResizable(true);
         f.setVisible(true);
         
 
