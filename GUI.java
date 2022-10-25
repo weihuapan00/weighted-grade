@@ -63,7 +63,7 @@ public class GUI extends JFrame{
         this.add(b);
 
         this.pack();
-        this.setVisible(true);
+        this.setVisible(true);//make the frame visible
     }
     
     public static void main(String[] args){
