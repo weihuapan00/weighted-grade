@@ -1,63 +1,74 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-public class GUI {
-    public static final String percentage = "Percentage";
-    public static final String total_points = "Total Points";
-    public static final String earned_points = "Earned Points";
-    public static final String[] columns = {"Percentage","Total Points","Earned Points"};
+public class GUI extends JFrame{
+    
+    GUI(){
+        // set up the frame default constraint 
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(null);
+        this.setPreferredSize(new Dimension(800,800));
 
-    public GUI() {
+        //create label and textfield for percentage input
+        JLabel l1 = new JLabel("percentage: ");
+        l1.setBounds(100,100,100,50);
+        JTextField t1 = new JTextField(10);
+        t1.setBounds(200,100,100,50);
 
+        //create label and textfield for total_points input
+        JLabel l2 = new JLabel("Total Points: ");
+        l2.setBounds(400,100,100,50);
+        JTextField t2 = new JTextField(10);
+        t2.setBounds(500,100,100,50);
+
+        //create label and textfield for earned_points input
+        JLabel l3 = new JLabel("Earned Points: ");
+        l3.setBounds(100,300,100,50);
+        JTextField t3 = new JTextField(10);
+        t3.setBounds(200,300,100,50);
+
+        // add all labels and textfield to frame
+        this.add(l1);
+        this.add(l2);
+        this.add(l3);
+        this.add(t1);
+        this.add(t2);
+        this.add(t3);
+
+
+       // create label and textfield for weighted_grade to frame
+        JLabel l4  = new JLabel("Weighted Grade: ");
+        l4.setBounds(350,600,100,50);
+        JTextField t4 = new JTextField(10);
+        t4.setEditable(false);
+        t4.setBounds(350,650,100,50);
+        this.add(l4);
+        this.add(t4);
+
+        // create the button that calculate the grade and add it to frame
+        Button b = new Button("Calculate Grade");
+        b.setBounds(500,300,100,50);
+        b.setBackground(Color.red);
+        b.addActionListener( (e) -> {
+            String str_t1 = t1.getText();
+            String str_t2 = t2.getText();
+            String str_t3 = t3.getText();
+            double d1  = Double.parseDouble(str_t1);
+            double d2  = Double.parseDouble(str_t2);
+            double d3  = Double.parseDouble(str_t3);
+            Grade1 grade = new Grade1(d2,d3,d1);
+            grade.calculateGrade();
+            t4.setText(String.valueOf(grade.getGrade()));
+        });
+        this.add(b);
+
+        this.pack();
+        this.setVisible(true);
+    }
+    
+    public static void main(String[] args){
+        new GUI();
     }
 
-    public static void addARow(JPanel jp){
-        jp.add(new JLabel("Percentage"));
-        jp.add(new JLabel("Total Points"));
-    }
-
-    public static void main(String[] args) {
-
-        JFrame f=new JFrame("Grade Application");//creating instance of JFrame
-        f.setSize(800,1000); //800*800 frame
-
         
-
-        // creating input panel and set the size 
-        JPanel input_p = new JPanel();
-        input_p.setPreferredSize(new Dimension(400,400));
-        input_p.setBorder(BorderFactory.createLineBorder(Color.black));
-        input_p.add(new JLabel("Percentage:"));
-        input_p.add(new JTextField());
-        input_p.add(new JLabel("Total Points:"));
-        input_p.add(new JTextField());
-        input_p.add(new JLabel("Earned Points:"));
-        input_p.add(new JTextField());
-        input_p.setLayout(new GridLayout(1,4));
-        JButton add = new JButton("Add");
-        input_p.add(add);
-
-        //creating view panel and set the size
-        JPanel view_p = new JPanel();
-        view_p.setLayout(new BorderLayout());
-        view_p.setBorder(BorderFactory.createLineBorder(Color.green, 3, true));
-        view_p.setPreferredSize(new Dimension(400,400));
-        JLabel l1 = new JLabel("Percentage:");
-        l1.setPreferredSize(new Dimension(40,200));
-        JTextField t1 = new JTextField();
-        JLabel l2 = new JLabel("Percentage:");
-        JTextField t2 = new JTextField(); 
-        JLabel l3 = new JLabel("Percentage:");
-        JTextField t3 = new JTextField();
-        view_p.add(l1);
-
-
-        //add panel in frame
-        f.add(view_p,BorderLayout.NORTH);
-        f.add(input_p,BorderLayout.SOUTH);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setVisible(true);
-        
-
-        }  
 } 
