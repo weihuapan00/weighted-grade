@@ -47,7 +47,7 @@ public class GUI extends JFrame{
 
         // create the button that calculate the grade and add it to frame
         Button b = new Button("Calculate Grade");
-        b.setBounds(500,300,100,50);
+        b.setBounds(500,300,150,50);
         b.setBackground(Color.red);
         b.addActionListener( (e) -> {
             String str_t1 = t1.getText();
