@@ -38,7 +38,7 @@ public class GUI extends JFrame{
 
        // create label and textfield for weighted_grade to frame
         JLabel l4  = new JLabel("Weighted Grade: ");
-        l4.setBounds(350,600,100,50);
+        l4.setBounds(350,600,150,50);
         JTextField t4 = new JTextField(10);
         t4.setEditable(false);
         t4.setBounds(350,650,100,50);
